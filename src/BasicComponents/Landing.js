@@ -24,6 +24,7 @@ export default function Landing({navigation}) {
               <Text> Landing</Text>
               <Button title="login" onPress={()=>navigation.navigate("Login")}/>
               <Button title="signup" onPress={()=>navigation.navigate("signup")}/>
+       
   
       </View>
        

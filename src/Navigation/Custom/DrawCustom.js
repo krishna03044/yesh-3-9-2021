@@ -1,15 +1,20 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
-    createDrawerNavigator,
     DrawerContentScrollView,
     DrawerItemList,
     DrawerItem,
   } from '@react-navigation/drawer';
   import * as React from 'react';
   import { View, Text ,Image} from 'react-native';
-  import User from '../../Model/User'
 
  export default function DrawCustom(props) {
-    console.log(props)
+  
+  async function handelSignout(props){
+  
+                       
+    await AsyncStorage.removeItem("userEmail")
+    props.navigation.push("Landing")
+  }
     return (
        
       <View>
@@ -25,7 +30,7 @@ import {
           <DrawerItemList {...props} />
   
           <DrawerItem label="Help" onPress={() => alert('Link to help')} />
-          <DrawerItem label="Signout" onPress={() => alert('signout')} />
+          <DrawerItem label="Signout" onPress={() => handelSignout(props)} />
         </DrawerContentScrollView>
       </View>
     );
